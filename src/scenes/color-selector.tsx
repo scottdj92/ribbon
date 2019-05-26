@@ -22,13 +22,9 @@ export class ColorSelector extends React.Component {
     public render() {
         return (
             <>
-                <Text>Profile Page</Text>
+                <Text>Color Selector</Text>
                 {
-                    colors.map((color) => <YarnColorButton
-                        title={color.name}
-                        color={color.hex} onPress={() => this.launchAlert(color.hex)}
-                        />,
-                    )
+                    colors.map((color) => <YarnColorButton color={color.hex} onPress={() => this.launchAlert(color.hex)}>{color.name}</YarnColorButton>)
                 }
             </>
         );

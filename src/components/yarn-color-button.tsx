@@ -1,15 +1,21 @@
 import React from "react";
-import { TouchableHighlight, Button } from "react-native";
+import { TouchableHighlight, View, Switch, Text } from "react-native";
 import styled from "@emotion/native";
+
+const Wrapper = styled.View`
+    color: ${({ color }) => color};
+`;
 
 type Props = {
     color: string;
-    title: string;
     onPress: () => void;
 };
 
-export const YarnColorButton: React.FC<Props> = ({ color, onPress, title }) => (
+export const YarnColorButton: React.FC<Props> = ({ color, onPress, children }) => (
     <TouchableHighlight>
-        <Button title={title} onPress={onPress} color={color}/>
+        <Wrapper color={color}>
+            <Switch onValueChange={onPress} />
+            <Text>{children}</Text>
+        </Wrapper>
     </TouchableHighlight>
 );
