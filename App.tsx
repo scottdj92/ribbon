@@ -1,27 +1,21 @@
 import React from "react";
 import { Component } from "react";
-import {Platform, StyleSheet, Text, View, Button} from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 import styled from "@emotion/native";
 import { NavigationTransitionProps } from "react-navigation";
-
-const instructions = Platform.select({
-  ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
-  android:
-    "Double tap R on your keyboard to reload,\n" +
-    "Shake or press menu button for dev menu",
-});
 
 const Container = styled.Text`
   color: rebeccapurple;
   font-size: 20px;
 `;
 
-export class Home extends Component<NavigationTransitionProps> {
+export class App extends Component<NavigationTransitionProps> {
   public render() {
     return (
       <View style={styles.container}>
         <Container>Tammy's yarn app</Container>
-        <Button onPress={() => this.props.navigation.navigate("Selector")} title="Get started"/>
+        <Button onPress={() => this.props.navigation.navigate("ColorSelector")} title="Get started"/>
+        <Button onPress={() => this.props.navigation.navigate("StripeCreator")} title="Create stripe" />
       </View>
     );
   }
